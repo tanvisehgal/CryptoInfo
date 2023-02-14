@@ -9,20 +9,27 @@ import SwiftUI
 
 struct CryptoView: View {
     
-    let cryptoData: [Crypto]
-    
+    @StateObject var vm: CryptoViewModel
+//    let cryptoData: [CryptoModel]
+
     var body: some View {
         
-        List(cryptoData) { crypto in
-            CryptoRowView(crypto: crypto)
+        NavigationView {
+            
+            List {
+                ForEach(vm.cryptoData) { crypto in
+                    CryptoRowView(crypto: crypto)
+                }
+                .navigationTitle("Crypto Data")
+                
+            }
         }
-  
-
     }
 }
 
 struct CryptoView_Previews: PreviewProvider {
     static var previews: some View {
-        CryptoView(cryptoData: testData)
+        CryptoView(vm: CryptoViewModel(cryptoData: testData))
     }
+       
 }

@@ -9,15 +9,24 @@ import SwiftUI
 
 struct CryptoRowView: View {
     
-    let crypto: Crypto
+    @State var crypto: CryptoModel
     
     var body: some View {
         HStack {
-            Image(systemName: "star")
             
+            Image(systemName: "circle")
             Text("\(crypto.name)")
             Spacer()
             Text("\(crypto.current_price)")
+            Image(systemName: "star")
+                .foregroundColor(crypto.isFavorite ?? false ? .yellow : .black)
+                .onTapGesture {
+                    print("tapped star")
+                    print(crypto.isFavorite)
+                    crypto.isFavorite?.toggle()
+                    print("toggled")
+                    print(crypto.isFavorite)
+                }
             
         }
     }
