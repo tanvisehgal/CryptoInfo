@@ -9,7 +9,7 @@ import Foundation
 
 // Observable object allows SwiftUI to be informed
 // when object changes
-@MainActor class CryptoViewModel: ObservableObject {
+class CryptoViewModel: ObservableObject {
     
     // Published allows us to create observable objects
     // that automatically announce when changes occur
@@ -19,26 +19,14 @@ import Foundation
     
     private let coinGeckoService = CoinGeckoServie()
     
-
+    
     init() {
-        Task.init {
-            await downloadData()
-            initializeFavorites()
-//            realmManager.deleteAll()
-            readFavorites()
-            print(self.cryptoData)
-        }
+        downloadData()
+        // timer needs to be turned off at some point
         let timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) {
             timer in
-            Task {
-                await self.downloadData()
-                await self.initializeFavorites()
-                await self.readFavorites()
-
-
-            }
+            self.downloadData()
         }
-        
     }
     
     // initializer w arguments for preview
@@ -47,41 +35,40 @@ import Foundation
     }
     
     // sets cryptoData to data from API call
-    func downloadData() async {
-        do {
-            self.cryptoData = try await coinGeckoService.getCryptoData()
-            print("called")
-
-        } catch {
-            print("Error downloading data")
-        }
+    func downloadData() {
+        coinGeckoService.getCryptoData(completionHandler: onDataReceived)
+        //      self.cryptoData = try await coinGeckoService.getCryptoData()
+    }
+    
+    // After getting data from API set view model on main thread
+    func onDataReceived(cryptoData: [CryptoModel]) {
+        self.cryptoData = cryptoData
+        initializeFavorites()
+        readFavorites()
     }
     
     
     // Sets all favorites to false
     func initializeFavorites() {
         for (index, _) in cryptoData.enumerated() {
-            // initial toggle favorite sets all values to false
-//            cryptoData[index] = crypto.toggleFavorite()
             cryptoData[index].isFavorite = false
         }
     }
     
-    //
+    
     func toggleFavorites(symbol: String) {
-//        cryptoData[index] = cryptoData[index].toggleFavorite()
+        //       cryptoData[index] = cryptoData[index].toggleFavorite()
         
         // Finds index in cryptodata array where symbol matches up
         let index = cryptoData.firstIndex(where: {$0.symbol == symbol})
         
         guard (index != nil) else {return}
-
+        
         // switches isFavorite boolean
         cryptoData[index!].isFavorite?.toggle()
         // if favorited, add to realm
         if (cryptoData[index!].isFavorite ?? false) {
             realmManager.saveFavorite(crypto: cryptoData[index!])
-    
         } else {
             // if unfavorited, delete from realm
             realmManager.deleteFavorite(crypto: cryptoData[index!])

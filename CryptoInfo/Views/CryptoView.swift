@@ -14,20 +14,13 @@ struct CryptoView: View {
     @StateObject var vm: CryptoViewModel
 //    let cryptoData: [CryptoModel]
     @State var showFavoritesOnly: Bool = false
-    @State var buttonText = "Show Favorites Only"
 
     var body: some View {
         
         NavigationView {
             VStack {
-                Button(buttonText, action:  {
+                Button(showFavoritesOnly ? "Show All" : "Show Favorites Only", action:  {
                     showFavoritesOnly.toggle()
-                    if showFavoritesOnly {
-                        self.buttonText = "Show All"
-                    } else {
-                        self.buttonText = "Show Favorites Only"
-                    }
-                    
                 })
                 List {
                     ForEach(vm.cryptoData) { crypto in

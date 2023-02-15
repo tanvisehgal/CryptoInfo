@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct CryptoInfoApp: App {
     
-    @StateObject var vm = CryptoViewModel()
+//    @StateObject var vm = CryptoViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(vm)
+//                .environmentObject(vm)
         }
     }
 }
