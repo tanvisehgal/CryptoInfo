@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            NavigationLink(destination: CryptoView(vm: CryptoViewModel())) {
+            NavigationLink(destination: CryptoView(vm: CryptoViewModel(), showFavoritesOnly: false)) {
                 Text("View Crypto Data")
             }
                 .navigationTitle("Crypto Info")

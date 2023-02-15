@@ -14,8 +14,10 @@ class CoinGeckoServie {
     // has changed
     @Published var cryptoData: [CryptoModel] = []
     
+    // Num cryptocurrencies to pull from API
     let NUM_ITEMS: Int = 10
     
+    // Returns an array of cryptomodel using data from API call
     // async function - need to await result
     func getCryptoData() async throws -> [CryptoModel] {
         
@@ -26,21 +28,13 @@ class CoinGeckoServie {
         
         do {
             // dont know when it will finish so we await until data is received
-            let (data, response) = try await URLSession.shared.data(from: url)
-            
-            print("data coded")
-            print(data)
-            
+            let (data, _) = try await URLSession.shared.data(from: url)
+
             let decodedResponse = try JSONDecoder().decode([CryptoModel].self, from: data)
 
-
-            print("Decoded Response:")
-            print(decodedResponse)
-            
             return decodedResponse
         } catch {
-            print("error fetching data")
-            print(error)
+            print("error fetching data \(error)")
             throw error
         }
         

@@ -10,26 +10,33 @@ import RealmSwift
 
 // Codable provides compatibility w JSON
 // Identifiable so each instance has a unique ID
-//struct CryptoModel: Identifiable, Codable {
-//    let id: String
-//    let symbol: String
-//    let name: String
-//    let image: String
-//    var current_price: Double
-//    var isFavorite: Bool?
-//
-//}
-
-//class CryptoModel: Object, ObjectKeyIdentifiable, Identifiable, Codable {
 struct CryptoModel: Identifiable, Codable {
     let id: String
     let symbol: String
     let name: String
     let image: String
     var current_price: Double
-    var isFavorite: Bool? = false
-    
+    var isFavorite: Bool?
 }
+
+// class for Realm
+class CryptoPersistentModel: Object, ObjectKeyIdentifiable  {
+//    @Persisted var id: ObjectId
+    @Persisted(primaryKey: true) var symbol: String
+    @Persisted var isFavorite: Bool
+    
+    override init() {
+        super.init()
+    }
+    
+    init(crypto: CryptoModel) {
+        super.init()
+        self.symbol = crypto.symbol
+        self.isFavorite = crypto.isFavorite ?? false
+    }
+}
+
+
 
 //let testData = [
 //    CryptoModel()

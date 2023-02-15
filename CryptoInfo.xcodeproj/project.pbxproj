@@ -22,6 +22,8 @@
 		1AF29F48299ABCB100261A84 /* CoinGeckoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F47299ABCB100261A84 /* CoinGeckoService.swift */; };
 		1AF29F4D299B65D900261A84 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF29F4C299B65D900261A84 /* Realm */; };
 		1AF29F4F299B65D900261A84 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF29F4E299B65D900261A84 /* RealmSwift */; };
+		1AF29F52299C07B400261A84 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F51299C07B400261A84 /* RealmManager.swift */; };
+		1AF29F54299CA3C700261A84 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F53299CA3C700261A84 /* TweetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		1AF29F42299A191200261A84 /* CryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
 		1AF29F44299AA91100261A84 /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
 		1AF29F47299ABCB100261A84 /* CoinGeckoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoService.swift; sourceTree = "<group>"; };
+		1AF29F51299C07B400261A84 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		1AF29F53299CA3C700261A84 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		1AF29F0E299A184B00261A84 /* CryptoInfo */ = {
 			isa = PBXGroup;
 			children = (
+				1AF29F50299C07A200261A84 /* Managers */,
 				1AF29F46299AB99F00261A84 /* Services */,
 				1AF29F3B299A186900261A84 /* ViewModels */,
 				1AF29F3A299A185F00261A84 /* Views */,
@@ -161,6 +166,7 @@
 				1AF29F3E299A18C700261A84 /* HomeView.swift */,
 				1AF29F40299A18FF00261A84 /* CryptoRowView.swift */,
 				1AF29F42299A191200261A84 /* CryptoView.swift */,
+				1AF29F53299CA3C700261A84 /* TweetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +185,14 @@
 				1AF29F47299ABCB100261A84 /* CoinGeckoService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1AF29F50299C07A200261A84 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1AF29F51299C07B400261A84 /* RealmManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,8 +337,10 @@
 				1AF29F3F299A18C700261A84 /* HomeView.swift in Sources */,
 				1AF29F45299AA91100261A84 /* CryptoViewModel.swift in Sources */,
 				1AF29F48299ABCB100261A84 /* CoinGeckoService.swift in Sources */,
+				1AF29F52299C07B400261A84 /* RealmManager.swift in Sources */,
 				1AF29F12299A184B00261A84 /* ContentView.swift in Sources */,
 				1AF29F10299A184B00261A84 /* CryptoInfoApp.swift in Sources */,
+				1AF29F54299CA3C700261A84 /* TweetView.swift in Sources */,
 				1AF29F43299A191200261A84 /* CryptoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
