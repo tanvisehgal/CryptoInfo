@@ -23,10 +23,11 @@ class CryptoViewModel: ObservableObject {
     init() {
         downloadData()
         // timer needs to be turned off at some point
-        let timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) {
-            timer in
-            self.downloadData()
-        }
+        
+//        let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) {
+//            timer in
+//            self.downloadData()
+//        }
     }
     
     // initializer w arguments for preview
@@ -34,7 +35,7 @@ class CryptoViewModel: ObservableObject {
         self.cryptoData = cryptoData
     }
     
-    // sets cryptoData to data from API call
+    // gets data from API call
     func downloadData() {
         coinGeckoService.getCryptoData(completionHandler: onDataReceived)
         //      self.cryptoData = try await coinGeckoService.getCryptoData()
@@ -42,6 +43,7 @@ class CryptoViewModel: ObservableObject {
     
     // After getting data from API set view model on main thread
     func onDataReceived(cryptoData: [CryptoModel]) {
+        print("crypto data received: \(cryptoData[0].current_price)")
         self.cryptoData = cryptoData
         initializeFavorites()
         readFavorites()
@@ -55,23 +57,24 @@ class CryptoViewModel: ObservableObject {
         }
     }
     
-    
+    // Handles when the favorite button is clicked
     func toggleFavorites(symbol: String) {
         //       cryptoData[index] = cryptoData[index].toggleFavorite()
         
         // Finds index in cryptodata array where symbol matches up
         let index = cryptoData.firstIndex(where: {$0.symbol == symbol})
         
-        guard (index != nil) else {return}
+        guard let index = index else {return}
+//        guard (index != nil) else {return}
         
         // switches isFavorite boolean
-        cryptoData[index!].isFavorite?.toggle()
+        cryptoData[index].isFavorite?.toggle()
         // if favorited, add to realm
-        if (cryptoData[index!].isFavorite ?? false) {
-            realmManager.saveFavorite(crypto: cryptoData[index!])
+        if (cryptoData[index].isFavorite ?? false) {
+            realmManager.saveFavorite(crypto: cryptoData[index])
         } else {
             // if unfavorited, delete from realm
-            realmManager.deleteFavorite(crypto: cryptoData[index!])
+            realmManager.deleteFavorite(crypto: cryptoData[index])
         }
     }
     
@@ -81,7 +84,6 @@ class CryptoViewModel: ObservableObject {
         
         allFavorites.forEach { fav in
             let index = cryptoData.firstIndex(where: {$0.symbol == fav.symbol})
-            print("Favoriting item \(index!)")
             cryptoData[index!].isFavorite = true
         }
     }

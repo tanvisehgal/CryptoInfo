@@ -16,9 +16,8 @@ struct CryptoView: View {
     @State var showFavoritesOnly: Bool = false
 
     var body: some View {
-        
-        NavigationView {
             VStack {
+
                 Button(showFavoritesOnly ? "Show All" : "Show Favorites Only", action:  {
                     showFavoritesOnly.toggle()
                 })
@@ -36,8 +35,6 @@ struct CryptoView: View {
                 }
                 .navigationTitle("Crypto Data")
             }
-
-        }
     }
 }
 

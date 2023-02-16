@@ -7,18 +7,24 @@
 
 import SwiftUI
 
-
-// https:// api.twitter.com/1.1/search/tweets.json?q=%23btc&result_type=recent
-
-
 struct TweetView: View {
+    
+    @StateObject var vm:TweetViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List {
+                ForEach(vm.tweetListData.statuses) { tweet in
+                    Text(tweet.text)
+                }
+            }
+            .navigationTitle("Tweet Data")
+        }
     }
 }
 
-struct TweetView_Previews: PreviewProvider {
-    static var previews: some View {
-        TweetView()
-    }
-}
+//struct TweetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TweetView()
+//    }
+//}

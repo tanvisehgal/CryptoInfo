@@ -24,6 +24,10 @@
 		1AF29F4F299B65D900261A84 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF29F4E299B65D900261A84 /* RealmSwift */; };
 		1AF29F52299C07B400261A84 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F51299C07B400261A84 /* RealmManager.swift */; };
 		1AF29F54299CA3C700261A84 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F53299CA3C700261A84 /* TweetView.swift */; };
+		1AF29F56299DFE5900261A84 /* TwitterAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F55299DFE5900261A84 /* TwitterAPIService.swift */; };
+		1AF29F58299EAC9700261A84 /* TweetListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F57299EAC9700261A84 /* TweetListModel.swift */; };
+		1AF29F5A299EB0B200261A84 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AF29F59299EB0B200261A84 /* data.json */; };
+		1AF29F5C299EB8FC00261A84 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29F5B299EB8FC00261A84 /* TweetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		1AF29F47299ABCB100261A84 /* CoinGeckoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoService.swift; sourceTree = "<group>"; };
 		1AF29F51299C07B400261A84 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		1AF29F53299CA3C700261A84 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
+		1AF29F55299DFE5900261A84 /* TwitterAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPIService.swift; sourceTree = "<group>"; };
+		1AF29F57299EAC9700261A84 /* TweetListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListModel.swift; sourceTree = "<group>"; };
+		1AF29F59299EB0B200261A84 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		1AF29F5B299EB8FC00261A84 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 				1AF29F0F299A184B00261A84 /* CryptoInfoApp.swift */,
 				1AF29F13299A184D00261A84 /* Assets.xcassets */,
 				1AF29F15299A184D00261A84 /* Preview Content */,
+				1AF29F59299EB0B200261A84 /* data.json */,
 			);
 			path = CryptoInfo;
 			sourceTree = "<group>";
@@ -155,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF29F3C299A18A300261A84 /* CryptoModel.swift */,
+				1AF29F57299EAC9700261A84 /* TweetListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF29F44299AA91100261A84 /* CryptoViewModel.swift */,
+				1AF29F5B299EB8FC00261A84 /* TweetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF29F47299ABCB100261A84 /* CoinGeckoService.swift */,
+				1AF29F55299DFE5900261A84 /* TwitterAPIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF29F17299A184D00261A84 /* Preview Assets.xcassets in Resources */,
+				1AF29F5A299EB0B200261A84 /* data.json in Resources */,
 				1AF29F14299A184D00261A84 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,13 +346,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF29F3D299A18A300261A84 /* CryptoModel.swift in Sources */,
+				1AF29F5C299EB8FC00261A84 /* TweetViewModel.swift in Sources */,
 				1AF29F41299A18FF00261A84 /* CryptoRowView.swift in Sources */,
 				1AF29F3F299A18C700261A84 /* HomeView.swift in Sources */,
 				1AF29F45299AA91100261A84 /* CryptoViewModel.swift in Sources */,
+				1AF29F56299DFE5900261A84 /* TwitterAPIService.swift in Sources */,
 				1AF29F48299ABCB100261A84 /* CoinGeckoService.swift in Sources */,
 				1AF29F52299C07B400261A84 /* RealmManager.swift in Sources */,
 				1AF29F12299A184B00261A84 /* ContentView.swift in Sources */,
 				1AF29F10299A184B00261A84 /* CryptoInfoApp.swift in Sources */,
+				1AF29F58299EAC9700261A84 /* TweetListModel.swift in Sources */,
 				1AF29F54299CA3C700261A84 /* TweetView.swift in Sources */,
 				1AF29F43299A191200261A84 /* CryptoView.swift in Sources */,
 			);
