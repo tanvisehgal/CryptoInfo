@@ -9,14 +9,14 @@ import Foundation
 
 class TwitterAPIService {
     
-
     let COUNT = 10
     let HASHTAG = "btc"
     
     func getTwitterData(completionHandler: @escaping ((TweetListModel) -> Void)) {
+        // Bearer Token
         let token = "AAAAAAAAAAAAAAAAAAAAAAI6lwEAAAAAbIJRYcHvRb7d9M3tGZxfJ9SUw5Q%3DpaaFLyWS3j1QSpRmcaxhRQM6PMBPNq0LPEJjXreuSepqdZRyEO"
         
-        guard let url = URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=%23\(HASHTAG)&result_type=popular&count=\(COUNT)")
+        guard let url = URL(string: "https://api.twitter.com/1.1/search/tweets.json?q=%23\(HASHTAG)&result_type=mixed&count=\(COUNT)")
         else {
             print("Invalid URL")
             return

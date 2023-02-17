@@ -12,7 +12,7 @@ class CoinGeckoServie {
     
     // Published allows subscriber to know when data
     // has changed
-    @Published var cryptoData: [CryptoModel] = []
+//    @Published var cryptoData: [CryptoModel] = []
     
     // Num cryptocurrencies to pull from API
     let NUM_ITEMS: Int = 10

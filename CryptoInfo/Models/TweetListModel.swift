@@ -29,4 +29,5 @@ struct UserModel: Identifiable, Codable {
     let screen_name: String
 }
 
-
+let testUserData = UserModel(id: 1, name: "tanvi s", screen_name: "tanvi_s")
+let testTweetData = TweetModel(id: 1, text: "Mock Tweet hi #btc", created_at: "Wed Feb 15 08:40:00 +0000 2023", user: testUserData)

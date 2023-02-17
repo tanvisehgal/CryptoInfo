@@ -17,7 +17,6 @@ struct CryptoView: View {
 
     var body: some View {
             VStack {
-
                 Button(showFavoritesOnly ? "Show All" : "Show Favorites Only", action:  {
                     showFavoritesOnly.toggle()
                 })

@@ -15,7 +15,7 @@ struct TweetView: View {
         VStack {
             List {
                 ForEach(vm.tweetListData.statuses) { tweet in
-                    Text(tweet.text)
+                    TweetRowView(tweet: tweet)
                 }
             }
             .navigationTitle("Tweet Data")
@@ -23,8 +23,8 @@ struct TweetView: View {
     }
 }
 
-//struct TweetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TweetView()
-//    }
-//}
+struct TweetView_Previews: PreviewProvider {
+    static var previews: some View {
+        TweetView(vm: TweetViewModel())
+    }
+}
